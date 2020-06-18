@@ -1,0 +1,37 @@
+.alert {
+    position: relative;
+    margin: $alert-margin-y $alert-margin-x; 
+    padding: $alert-padding-y $alert-padding-x;
+    border-radius: $alert-border-radius;
+    width: $alert-width;
+    // animation: deleteAnimate 0.5s;
+}
+.alert-default {
+    @include alert-style($primary, $primary, $white);
+}
+.alert-success {
+    @include alert-style($success, $success, $white);
+}
+.alert-danger {
+    @include alert-style($danger, $danger, $white);
+}
+.alert-warning {
+    @include alert-style($warning, $warning, $white);
+}
+.close {
+    position: absolute;
+    top: $alert-padding-y;
+    right: $alert-padding-x;
+}
+
+// @keyframes deleteAnimate {
+//     10% {
+//         opacity: 0.5;
+//     }
+//     60% {
+//         opacity: 0.1;
+//     }
+//     100% {
+//         opacity: 0;
+//     }
+// }

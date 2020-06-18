@@ -1,0 +1,50 @@
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 30px;
+    list-style: none;
+    border-bottom: $tab-border-width solid $tab-border-color;
+    box-shadow: $tab-box-shadow;
+    // 正常状态下的
+    >.tab-item {
+        padding: $tab-item-padding-y $tab-item-padding-x;
+        cursor: pointer;
+        transition: $tab-transition;
+        &:hover, &:focus {
+          text-decoration: none;
+        }
+        &.is-disabled {
+          color: $tab-item-disabled-color;
+          pointer-events: none;
+          cursor: default;
+        }
+        &.is-active, &:hover {
+          color: $tab-item-active-color;
+          border-bottom: $tab-item-active-border-width solid $tab-item-active-color;
+        }
+    }
+    &-card { // card状态下的
+        border-bottom: none;
+        box-shadow: none;
+        
+        .tab-item {
+            border-color: transparent;
+            border-bottom-color: $gray-300;
+            border-style: solid;
+            border-width: $tab-item-card-active-border-width;
+        
+            &:hover {
+                color: $tab-item-active-color;
+                border-bottom-color: $gray-300;
+            }
+            &.is-active, 
+            &.is-active:hover {
+                border-color: $gray-300;
+                border-bottom-color: transparent;
+                border-top-left-radius: $border-radius;
+                border-top-right-radius: $border-radius;
+            }
+        }
+    }
+}

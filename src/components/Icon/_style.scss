@@ -1,0 +1,8 @@
+.icon {
+    // 使用each循环对象
+    @each $key, $theme in $theme-colors {
+        &-#{$key} { // 设置key需要 #{value}
+            color: $theme;
+        }
+    }
+}
