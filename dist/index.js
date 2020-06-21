@@ -36,3 +36,5 @@ export { default as Upload } from './components/Upload';
 // npm adduser 进行登录
 // npm publish 发布
 // peerDependencies 标识告诉用户要安装这里面的
+// package.json里面的scripts prepublishOnly 
+// 是替换prepublish的，prepublish会在npm install or npm publish都运行 这样是不好的
