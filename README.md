@@ -86,7 +86,7 @@
 ##### ```rimraf 是兼容window、mac、linux系统，用来删除文件夹、文件的命令 ```
 ##### ```cross-env 是兼容window、mac、linux系统的配置env的命令```
 ##### ```husky 哈士奇钩子package.json的配置工具，可以在运行git提交前进行一系列的命令```
-```json
+```js
 // package.json
 {
   "husky": {
@@ -100,7 +100,7 @@
 ## 2.生成需要打包的库
 
 ### 2.1 设置tsconfig.build.json
-```json
+```js
 {
     "compilerOptions": {
         "outDir": "dist", // 代码生成的文件夹
@@ -124,7 +124,7 @@
 ```
 
 ### 2.2 在package.json中设置对应的命令和配置
-```json
+```js
 {
     // 描述
     "description": "test React components library",
@@ -252,13 +252,13 @@
 
 #### 这时候我们需要在根目录下创建一个.travis.yml文件，代码如下 ，然后在提交后会自动在Travis CI运行下面的配置文件
 ```env
-# 这个文件会自动在你git push 项目的成功后运行 npm install  or npm ci (ci -> 运行.lock相关的版本锁文件)
-language: node_js # 使用语言
-node_js: # 语言的版本
-  - "stable"
-cache: # 使用缓存
-  directories:
-  - node_modules
-env: # 环境变量
-  - CI=true
+    # 这个文件会自动在你git push 项目的成功后运行 npm install  or npm ci (ci -> 运行.lock相关的版本锁文件)
+    language: node_js # 使用语言
+    node_js: # 语言的版本
+    - "stable"
+    cache: # 使用缓存
+    directories:
+    - node_modules
+    env: # 环境变量
+    - CI=true
 ```
