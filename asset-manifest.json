@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/StringLiu2/mack-design/static/css/main.c71a9038.chunk.css",
+    "main.js": "/StringLiu2/mack-design/main.17f1945cc4ed9e8ca4a6.bundle.js",
+    "main.css.map": "/StringLiu2/mack-design/static/css/main.c71a9038.chunk.css.map",
+    "main.js.map": "/StringLiu2/mack-design/main.17f1945cc4ed9e8ca4a6.bundle.js.map",
+    "runtime~main.js": "/StringLiu2/mack-design/runtime~main.17f1945cc4ed9e8ca4a6.bundle.js",
+    "runtime~main.js.map": "/StringLiu2/mack-design/runtime~main.17f1945cc4ed9e8ca4a6.bundle.js.map",
+    "vendors~main.css": "/StringLiu2/mack-design/static/css/vendors~main.f8f248a5.chunk.css",
+    "vendors~main.js": "/StringLiu2/mack-design/vendors~main.17f1945cc4ed9e8ca4a6.bundle.js",
+    "vendors~main.css.map": "/StringLiu2/mack-design/static/css/vendors~main.f8f248a5.chunk.css.map",
+    "vendors~main.js.map": "/StringLiu2/mack-design/vendors~main.17f1945cc4ed9e8ca4a6.bundle.js.map",
+    "iframe.html": "/StringLiu2/mack-design/iframe.html",
+    "precache-manifest.f44fd03d2dfa2edbb1c2b0efe0c21b12.js": "/StringLiu2/mack-design/precache-manifest.f44fd03d2dfa2edbb1c2b0efe0c21b12.js",
+    "service-worker.js": "/StringLiu2/mack-design/service-worker.js",
+    "vendors~main.17f1945cc4ed9e8ca4a6.bundle.js.LICENSE.txt": "/StringLiu2/mack-design/vendors~main.17f1945cc4ed9e8ca4a6.bundle.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "runtime~main.17f1945cc4ed9e8ca4a6.bundle.js",
+    "static/css/vendors~main.f8f248a5.chunk.css",
+    "vendors~main.17f1945cc4ed9e8ca4a6.bundle.js",
+    "static/css/main.c71a9038.chunk.css",
+    "main.17f1945cc4ed9e8ca4a6.bundle.js"
+  ]
+}
