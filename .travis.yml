@@ -15,7 +15,7 @@ deploy:
   provider: pages
   skip_cleanup: true
   # 生成的token 58bfba80c27d90701f25fd57624d08c6fa0324d5
-  github_token: 58bfba80c27d90701f25fd57624d08c6fa0324d5 # $github_token
+  github_token: $GITHUB_TOKEN 
   local_dir: storybook-static # 上传哪个文件夹的文件
   on:
     branch: master # 哪个branch分支发生变化就执行
