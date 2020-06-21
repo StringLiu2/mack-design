@@ -1,5 +1,7 @@
 ## ts仿实现ant-design库
 
+##### 文档地址 [https://StringLiu2.github.io/mack-design](https://StringLiu2.github.io/mack-design)
+
 ```$ 
     yarn add mack-design 
     // or
@@ -255,10 +257,20 @@
     # 这个文件会自动在你git push 项目的成功后运行 npm install  or npm ci (ci -> 运行.lock相关的版本锁文件)
     language: node_js # 使用语言
     node_js: # 语言的版本
-    - "stable"
+        - "stable"
     cache: # 使用缓存
     directories:
-    - node_modules
+        - node_modules
     env: # 环境变量
-    - CI=true
+        - CI=true
+    # 等待travis CI运行成功，这时候我们需要进行文档部署到travis CI (下面就是自动化部署的配置)
+    script:
+        - npm run build-storybook # 自动运行这个命令，生成静态文件
+    deploy:
+        provider: pages
+        skip_cleanup: true
+        github_token: $github_token # 生成的token 32ab2812d8e8790860f134af8ece6240f1cdf276
+        local_dir: storybook-static # 上传哪个文件夹的文件
+        on:
+            branch: master # 哪个branch分支发生变化就执行
 ```
