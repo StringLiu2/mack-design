@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "outDir": "dist",
+        "module": "ESNext",
+        "target": "ES5",
+        "declaration": true, // 生成.d.ts文件，类型声明文件
+        "jsx": "react",
+        "moduleResolution": "node", // 查找文件的方式，不要classic
+        "allowSyntheticDefaultImports": true // 需要直接引入 不是 import * as React from 'react'
+    },
+    "include": [
+        "src"
+    ],
+    "exclude": [
+        "src/**/*.test.tsx",
+        "src/**/*.stories.tsx"
+    ]
+}

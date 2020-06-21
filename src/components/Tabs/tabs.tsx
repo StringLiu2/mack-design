@@ -1,4 +1,4 @@
-import React, { createContext, useState, useMemo } from 'react'
+import React, { createContext, useState, useMemo, FC, Dispatch, SetStateAction, ReactNode, CSSProperties } from 'react'
 import classNames from 'classnames';
 import TabItem, { TabItemProps } from './tabItem';
 
@@ -8,23 +8,32 @@ type TabMode = "tab" | "card";
 type SelectCallback = (selectedIndex: string) => void;
 
 export interface TabsProps {
-    mode?: TabMode; // tab模式和card卡片模式
-    defaultIndex?: string; // 默认选中哪个
+    /** tab模式和card卡片模式 */
+    mode?: TabMode;
+    /** 默认选中哪个tab */
+    defaultIndex?: string;
     className?: string;
-    style?: React.CSSProperties;
-    onSelect?: SelectCallback; // 点击之后触发的事件
+    style?: CSSProperties;
+    /** 点击之后触发的事件 */
+    onSelect?: SelectCallback;
 }
 interface TabsProperties {
+    /** 每个tab 组件 */
     Item: typeof TabItem,
 }
 interface ITabsContext {
     index: string;
     onSelect: SelectCallback;
-    renderChildren: React.Dispatch<React.SetStateAction<React.ReactNode>>;
+    renderChildren: Dispatch<SetStateAction<ReactNode>>;
 }
 export const TabsContext = createContext<ITabsContext>({} as ITabsContext);
-
-const Tabs: React.FC<TabsProps> & TabsProperties = ({
+/**
+ * ### 引用方式
+ * ~~~js
+ * import { Tabs } from 'mack-design';
+ * ~~~
+ */
+export const Tabs: FC<TabsProps> & TabsProperties = ({
     className,
     style,
     mode,
@@ -33,7 +42,7 @@ const Tabs: React.FC<TabsProps> & TabsProperties = ({
     onSelect
 }) => {
     const [currentIndex, setIndex] = useState<string>(defaultIndex!);
-    const [child, renderChildren] = useState<React.ReactNode>();
+    const [child, renderChildren] = useState<ReactNode>();
     // 创建Context，存储对应的数据
     const contextValue = useMemo<ITabsContext>(() => ({
         index: currentIndex,

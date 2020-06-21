@@ -1,4 +1,4 @@
-import React, { createContext, useState, useMemo } from 'react'
+import React, { createContext, useState, useMemo, CSSProperties, FC } from 'react'
 import classNames from 'classnames';
 import MenuItem, { MenuItemProps } from './menuItem';
 import SubMenu, { SubMenuProps } from './subMenu';
@@ -8,16 +8,22 @@ export type MenuMode = 'horizontal' | 'vertical';
 type SelectCallback = (selectedIndex: string) => void;
 
 export interface MenuProps {
-    defaultIndex?: string; // 默认选中哪个
+    /** 默认选中哪个index */
+    defaultIndex?: string;
     className?: string;
-    mode?: MenuMode; // 水平还是垂直
-    style?: React.CSSProperties;
-    onSelect?: SelectCallback; // 点击之后触发的事件
-    defaultOpenSubMenus?: string[]; // 默认打开的subMenu
+    /** 水平还是垂直模式 */
+    mode?: MenuMode;
+    style?: CSSProperties;
+    /** 点击之后触发的事件 */
+    onSelect?: SelectCallback;
+    /** 默认打开的subMenu */
+    defaultOpenSubMenus?: string[];
 }
-// 在Menu组件身上绑定的静态属性
+/** 在Menu组件身上绑定的静态属性 */
 interface MenuProperties {
+    /** MenuItem */
     Item: typeof MenuItem;
+    /** SubMenu */
     SubMenu: typeof SubMenu;
 }
 // Menu的上下文的数据类型
@@ -29,8 +35,13 @@ interface IMenuContext {
 }
 
 export const MenuContext = createContext<IMenuContext>({ index: '0' });
-
-const Menu: React.FC<MenuProps> & MenuProperties = ({
+/**
+ * ### 引用方式
+ * ~~~js
+ * import { Menu } from 'mack-design';
+ * ~~~
+ */
+export const Menu: FC<MenuProps> & MenuProperties = ({
     mode,
     className,
     style,

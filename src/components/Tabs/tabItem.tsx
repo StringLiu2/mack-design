@@ -1,16 +1,20 @@
-import React, { useContext, useCallback, useMemo, useEffect } from 'react'
+import React, { useContext, useCallback, useMemo, useEffect, FC, ReactNode, CSSProperties } from 'react'
 import classNames from 'classnames';
 import { TabsContext } from './tabs';
 
+/** TabItem的参数配置 */
 export interface TabItemProps {
+    /** 当前的index,用于是否被选中 */
     index?: string;
-    label: React.ReactNode;
+    /** 展示的label内容 是一个ReactNode */
+    label: ReactNode;
+    /** 是否禁止点击 */
     disabled?: boolean;
     className?: string;
-    style?: React.CSSProperties;
+    style?: CSSProperties;
 }
 
-const TabItem: React.FC<TabItemProps> = ({
+export const TabItem: FC<TabItemProps> = ({
     index,
     label,
     disabled,

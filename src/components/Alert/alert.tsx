@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from 'react'
+import React, { useCallback, useRef, useState, ReactNode, FC, HTMLAttributes } from 'react'
 import classNames from 'classnames';
 import Icon from '../Icon/icon';
 import Transition from '../Transition/transition';
@@ -6,14 +6,23 @@ import Transition from '../Transition/transition';
 type AlertType = 'success' | 'default' | 'danger' | 'warning';
 
 interface BaseAlertProps {
+    /** alert的类型，背景色 */
     type?: AlertType;
+    /** 是否有关闭 x */
     isClose?: boolean;
-    title: string | React.ReactNode;
+    /** Alert组件的标题 */
+    title: string | ReactNode;
+    /** 关闭Alert组件回调方法 */
     onClose?: (currentEvent: HTMLDivElement) => any;
 }
-export type AlertProps = BaseAlertProps & React.HTMLAttributes<HTMLElement>;
-
-const Alert: React.FC<AlertProps> = ({
+export type AlertProps = BaseAlertProps & HTMLAttributes<HTMLElement>;
+/**
+ * ### 引用方式
+ * ~~~js
+ * import { Alert } from 'mack-design';
+ * ~~~
+ */
+export const Alert: FC<AlertProps> = ({
     type,
     isClose,
     className,

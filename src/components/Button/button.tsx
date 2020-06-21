@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ButtonHTMLAttributes, AnchorHTMLAttributes, FC } from 'react'
 import classNames from 'classnames';
 
 
@@ -7,16 +7,28 @@ type ButtonSize = 'lg' | 'sm';
 type ButtonType = 'primary' | 'default' | 'danger' | 'link';
 
 interface BaseButtonProps {
+    className?: string;
+    /** 设置 Button 是否禁用 */
+    disabled?: boolean;
+    /** 设置 Button 的尺寸 */
     size?: ButtonSize;
+    /** 设置 Button 的类型 */
     btnType?: ButtonType;
+    href?: string;
 }
 // 拿到原生React的类型
-type NativeButtonProps = BaseButtonProps & React.ButtonHTMLAttributes<HTMLElement>;
-type AnchorButtonProps = BaseButtonProps & React.AnchorHTMLAttributes<HTMLElement>;
+type NativeButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLElement>;
+type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLElement>;
 
 // Partial 让类型变成可选的
 export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>;
-const Button: React.FC<ButtonProps> = ({
+/**
+ * ### 引用方式
+ * ~~~js
+ * import { Button } from 'mack-design';
+ * ~~~
+ */
+export const Button: FC<ButtonProps> = ({
     btnType,
     disabled,
     size,

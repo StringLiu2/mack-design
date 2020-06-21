@@ -1,0 +1,9 @@
+# 这个文件会自动在你git push 项目的时候运行 npm install  or npm ci (ci -> 运行.lock相关的版本锁文件)
+language: node_js # 使用语言
+node_js: # 语言的版本
+  - "stable"
+cache: # 使用缓存
+  directories:
+  - node_modules
+env: # 环境变量
+  - CI=true

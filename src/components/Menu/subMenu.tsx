@@ -1,4 +1,4 @@
-import React, { FunctionComponentElement, useState, useContext, useMemo, useCallback, useRef } from 'react'
+import React, { FunctionComponentElement, FC, useState, useContext, useMemo, useCallback, useRef } from 'react'
 import classNames from 'classnames';
 import { MenuContext } from './menu';
 import { MenuItemProps } from './menuItem';
@@ -7,12 +7,14 @@ import Icon from '../Icon/icon';
 
 
 export interface SubMenuProps {
+    /** 当前是否被选中的标识 */
     index?: string;
+    /** SubMenu必备的标题 */
     title: string;
     className?: string;
 }
 
-const SubMenu: React.FC<SubMenuProps> = ({
+export const SubMenu: FC<SubMenuProps> = ({
     index,
     title,
     children,
@@ -95,7 +97,7 @@ const SubMenu: React.FC<SubMenuProps> = ({
         </li>
     )
 }
-// 标识，用来判断是否渲染
+/** 标识，用来判断是否渲染 */
 SubMenu.displayName = 'SubMenu';
 
 export default SubMenu

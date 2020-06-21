@@ -1,29 +1,66 @@
 {
   "name": "mack-design",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.2",
+  "description": "test React components library",
+  "author": "mack liu",
+  "license": "MIT",
+  "keywords": [
+    "mack-design"
+  ],
+  "private": false,
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "@types/jest": "^24.0.0",
-    "@types/node": "^12.0.0",
-    "@types/react": "^16.9.0",
-    "@types/react-dom": "^16.9.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1",
-    "react-transition-group": "^4.4.1",
-    "typescript": "~3.7.2"
+    "@fortawesome/fontawesome-svg-core": "^1.2.28",
+    "@fortawesome/free-solid-svg-icons": "^5.13.0",
+    "@fortawesome/react-fontawesome": "^0.1.11",
+    "axios": "^0.19.2",
+    "classnames": "^2.2.6",
+    "react-transition-group": "^4.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "npm run delete && npm run build:ts && npm run build:scss",
+    "delete": "rimraf ./dist",
+    "build:ts": "tsc -p tsconfig.build.json",
+    "build:scss": "node-sass ./src/styles/index.scss ./dist/index.css",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test:nowatch": "cross-env CI=true react-scripts test",
+    "lint": "eslint --ext js,jsx,ts,tsx src --max-warnings 10",
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public",
+    "prepublishOnly": "npm run test:nowatch && npm run lint && npm run build",
+    "postpublish": "npm run build-storybook"
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn test:nowatch && yarn lint"
+    }
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.[jt]sx?$": "<rootDir>/node_modules/babel-jest"
+    },
+    "transformIgnorePatterns": [
+      "<rootDir>/node_modules/"
+    ]
   },
   "browserslist": {
     "production": [
@@ -38,13 +75,33 @@
     ]
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.28",
-    "@fortawesome/free-solid-svg-icons": "^5.13.0",
-    "@fortawesome/react-fontawesome": "^0.1.11",
+    "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-info": "^5.3.19",
+    "@storybook/addon-links": "^5.3.19",
+    "@storybook/addon-notes": "^5.3.19",
+    "@storybook/addons": "^5.3.19",
+    "@storybook/preset-create-react-app": "^3.1.1",
+    "@storybook/react": "^5.3.19",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
     "@types/classnames": "^2.2.10",
+    "@types/jest": "^24.0.0",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
     "@types/react-transition-group": "^4.4.0",
-    "classnames": "^2.2.6",
+    "@types/storybook__addon-info": "^5.2.1",
+    "babel-loader": "^8.1.0",
+    "cross-env": "^7.0.2",
+    "husky": "^4.2.5",
     "jest-dom": "^4.0.0",
-    "node-sass": "^4.14.1"
+    "node-sass": "^4.14.1",
+    "react": "^16.13.1",
+    "react-docgen-typescript-loader": "^3.7.2",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1",
+    "rimraf": "^3.0.2",
+    "typescript": "~3.7.2"
   }
 }

@@ -1,15 +1,17 @@
-import React, { useContext, useCallback } from 'react'
+import React, { useContext, useCallback, CSSProperties, FC } from 'react'
 import classNames from 'classnames';
 import { MenuContext } from './menu';
 
 export interface MenuItemProps {
+    /** 当前是否被选中的index标识 */
     index?: string;
+    /** 是否禁止点击 */
     disabled?: boolean;
     className?: string;
-    style?: React.CSSProperties;
+    style?: CSSProperties;
 }
 
-const MenuItem: React.FC<MenuItemProps> = ({
+export const MenuItem: FC<MenuItemProps> = ({
     index,
     disabled,
     className,
@@ -34,7 +36,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
         </li>
     )
 }
-// 标识，如果没有这个标识就不渲染并且打印error信息
+/** 标识，如果没有这个标识就不渲染并且打印error信息 */
 MenuItem.displayName = 'MenuItem';
 
 MenuItem.defaultProps = {

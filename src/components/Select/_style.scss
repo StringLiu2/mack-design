@@ -1,0 +1,57 @@
+.select {
+    position: relative;
+    .select-list {
+        list-style:none;
+        padding-left: 0;
+        white-space: nowrap;
+        position: absolute;
+        background: $white;
+        z-index: 100;
+        top: calc(100% + 8px);
+        left: 0;
+        border: $menu-border-width solid $menu-border-color;
+        box-shadow: $submenu-box-shadow;
+        width: 100%;
+        .select-item {
+            padding: $menu-item-padding-y $menu-item-padding-x;
+            cursor: pointer;
+            transition: $menu-transition;
+            color: $body-color;
+            &.is-active {
+                position: relative;
+                color: $menu-item-active-color !important;
+                .is-select {
+                    // 选中的样式
+                    position: absolute;
+                    right: $menu-item-padding-x;
+                    top: $menu-item-padding-y;
+                }
+                &:hover {
+                    color: $menu-item-active-color !important;
+                }
+                &.item-highlighted {
+                    &:hover {
+                        color: $white !important;
+                    }
+                }
+            }
+            &.item-highlighted {
+                background: $menu-item-active-color !important;
+                color: $white !important;
+            }
+            &.is-disabled {
+                cursor: not-allowed;
+                opacity: $btn-disabled-opacity;
+                > * {
+                    pointer-events: none;
+                }
+                &:hover {
+                    color: inherit !important; 
+                }
+            }
+            &:hover {
+                color: $menu-item-active-color !important;
+            }
+        }
+    }
+}
