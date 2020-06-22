@@ -159,7 +159,7 @@ describe('test Select Component', () => {
         expect(testMultipleProps.onChange).toHaveBeenCalledWith([0]);
         expect(label1).not.toBeInTheDocument();
         expect((inputElement as HTMLInputElement).value).toBe('label-1');
-        // 再次点击打开列表、然后点击label5
+        // 再次点击打开列表、然后点击label-5
         fireEvent.click(inputElement);
         fireEvent.click(wrapper.getByText('label-5'));
         expect(testMultipleProps.onChange).toHaveBeenCalledWith([0, 4]);

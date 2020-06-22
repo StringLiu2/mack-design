@@ -1,5 +1,6 @@
 import React, { FC, useRef, useCallback, ChangeEvent, useState } from 'react'
 import axios from 'axios'
+import { v4 as uuid } from 'uuid';
 import FileList from './fileList';
 import Dragger from './dragger';
 
@@ -149,7 +150,7 @@ export const Upload: FC<UploadProps> = ({
         postFiles.forEach(file => {
             // 创建我们的file
             const uploadFile: UploadFile = {
-                uid: Date.now() + 'upload-file',
+                uid: uuid(),
                 status: 'ready',
                 name: file.name,
                 size: file.size,

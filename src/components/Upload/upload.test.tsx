@@ -112,6 +112,7 @@ describe('test Upload Component', () => {
         expect(uploadArea).toHaveClass('is-dragover');
         fireEvent.dragLeave(uploadArea);
         expect(uploadArea).not.toHaveClass('is-dragover');
+        // todo 解决drop拖拽上传时dataTransfer对象不存在的问题
         // 创建一个event对象
         const mockDropEvent = createEvent.drop(uploadArea);
         // const testFileList = [testFile]; 
@@ -123,6 +124,7 @@ describe('test Upload Component', () => {
         })
         // 然后这样调用
         fireEvent(uploadArea, mockDropEvent);
+        // todo -----------------------------------------
         await wait(() => {
             expect(queryByText('test.png')).toBeInTheDocument();
         });

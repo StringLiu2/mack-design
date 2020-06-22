@@ -26,7 +26,7 @@
 
 ##### ```3. react开发组件库的流程```
 
-##### ```4. 对@testing-library相关的测试，和一些扩张的jest测试API学习，异步测试,如何测试拖拽相关```
+##### ```4. 对@testing-library相关的测试，和一些扩展的jest测试API学习，异步测试,如何测试拖拽相关```
 
 ##### ```5. 使用storybook，知道如何配置storybook以及使用，生成文档```
 
@@ -75,6 +75,44 @@
     yarn add @storybook/addon-info -S
     yarn add @types/storybook__addon-info -D
 ```
+```js
+    // .storybook/webpack.config.js配置
+    // webpack配置提供给storybook
+    module.exports = ({ config }) => {
+        config.module.rules.push({
+            test: /\.tsx?$/,
+            use: [
+            {
+                loader: require.resolve("babel-loader"),
+                options: {
+                presets: [require.resolve("babel-preset-react-app")]
+                }
+            },
+            {
+                // 通过react代码生成表格
+                loader: require.resolve('react-docgen-typescript-loader'),
+                options: {
+                // 把那些字面值常量、联合类型等用字符串展开
+                shouldExtractLiteralValuesFromEnum: true, 
+                // 过滤props
+                propFilter(props) {
+                    // 如果是node_module就就false
+                    if(props.parent) return !props.parent.fileName.includes('node_modules');
+                    // 默认true
+                    return true;
+                }
+                }
+            }
+            ]
+        });
+
+        config.resolve.extensions.push(".ts", ".tsx");
+
+        return config;
+    };
+
+```
+
 
 ### 安装文档生成库，react-ts的 react-docgen-typescript-loader
 ```$
@@ -89,14 +127,14 @@
 ##### ```cross-env 是兼容window、mac、linux系统的配置env的命令```
 ##### ```husky 哈士奇钩子package.json的配置工具，可以在运行git提交前进行一系列的命令```
 ```js
-// package.json
-{
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run test:nowatch && npm run lint"
+    // package.json
+    {
+    "husky": {
+        "hooks": {
+        "pre-commit": "npm run test:nowatch && npm run lint"
+        }
     }
-  }
-}
+    }
 ```
 
 ## 2.生成需要打包的库
@@ -238,7 +276,7 @@
 
 ### CI - 持续集成
 
-- 频繁的讲代码集成到主干(master)
+- 频繁的将代码集成到主干(master)
 - 快速发现错误
 - 防止分支大幅度偏离主干
 

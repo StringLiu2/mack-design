@@ -5,6 +5,7 @@
 /test-mack-design
 /.pnp
 .pnp.js
+commit-git.js
 
 # testing
 /coverage

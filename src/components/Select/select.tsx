@@ -22,7 +22,7 @@ export interface SelectProps extends Omit<InputProps, 'onChange'> {
     defaultSelect?: Array<string | number> | string | number;
     /** 在下拉菜单显示、隐藏调用 */
     onVisibleChange?: (isVisible: boolean) => void;
-    /** 选中值发生变化的时候被触发，参数是第几项，选中的那项对象 */
+    /** 选中值发生变化的时候被触发，参数是选中的下标，选中的那项对象 */
     onChange?: (dataIndexArr: number[]) => void;
 }
 /**
@@ -143,7 +143,7 @@ export const Select: FC<SelectProps> = ({
             }
             item = data[targetIndex];
         } while (item.disabled && (targetIndex !== 0 || targetIndex !== data.length - 1))
-        // 这是被禁用的，那就不动，一直在那个为止
+        // 标识移动到最后和第一个都是被禁用的，那就不动，一直在那个为止
         if (data[targetIndex].disabled) {
             targetIndex = currentIndex;
         }

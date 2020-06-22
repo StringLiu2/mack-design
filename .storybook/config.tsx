@@ -30,5 +30,5 @@ const loaderFn = () => {
 };
 
 
-// automatically import all files ending in *.stories.js
+// automatically import all files ending in *.stories.tsx
 configure(loaderFn, module);

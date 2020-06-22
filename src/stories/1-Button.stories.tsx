@@ -5,7 +5,7 @@ import { Button } from '@storybook/react/demo';
 // 定义标题和对应的组件，这是一个个storybook
 export default {
   title: 'Button-Test',
-  component: Button,
+  component: Button
 };
 
 // 每个storybook下面的一个个列表项(其实就是一个个书签)，返回的是一个个组件，点出触发会在下面action

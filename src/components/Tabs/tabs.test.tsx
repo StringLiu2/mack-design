@@ -61,6 +61,7 @@ describe('test Tabs and TabItem component', () => {
         expect(testTabsProps.onSelect).toHaveBeenCalledWith('2');
         // 没有了之前的样式
         expect(activeElement).not.toHaveClass('is-active');
+        // 文字也变化了
         expect(renderChildElement.textContent).toBe('this is tab three');
         fireEvent.click(disabledElement);
         expect(disabledElement).not.toHaveClass('is-active');
