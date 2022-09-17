@@ -14,7 +14,7 @@ script:
 deploy:
   provider: pages
   skip_cleanup: true
-  # 生成的token eccb3cef3c0923f10fb915b30d3461a52d922108
+  # 生成的token 5a76460720d858aa67e18a22faa55e195f76744e
   github_token: $GITHUB_TOKEN 
   local_dir: storybook-static # 上传哪个文件夹的文件
   on:

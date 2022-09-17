@@ -1,4 +1,4 @@
-import React, { createContext, useState, useMemo, FC, Dispatch, SetStateAction, ReactNode, CSSProperties } from 'react'
+import React, { createContext, useState, useMemo, FC, Dispatch, SetStateAction, ReactNode, CSSProperties, memo } from 'react'
 import classNames from 'classnames';
 import TabItem, { TabItemProps } from './tabItem';
 

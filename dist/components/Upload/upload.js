@@ -18,6 +18,7 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
 };
 import React, { useRef, useCallback, useState } from 'react';
 import axios from 'axios';
+import { v4 as uuid } from 'uuid';
 import FileList from './fileList';
 import Dragger from './dragger';
 /**
@@ -105,7 +106,7 @@ export var Upload = function (_a) {
         postFiles.forEach(function (file) {
             // 创建我们的file
             var uploadFile = {
-                uid: Date.now() + 'upload-file',
+                uid: uuid(),
                 status: 'ready',
                 name: file.name,
                 size: file.size,

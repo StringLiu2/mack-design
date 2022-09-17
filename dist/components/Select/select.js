@@ -153,7 +153,7 @@ export var Select = function (_a) {
             }
             item = data[targetIndex];
         } while (item.disabled && (targetIndex !== 0 || targetIndex !== data.length - 1));
-        // 这是被禁用的，那就不动，一直在那个为止
+        // 标识移动到最后和第一个都是被禁用的，那就不动，一直在那个为止
         if (data[targetIndex].disabled) {
             targetIndex = currentIndex;
         }

@@ -13,7 +13,7 @@ const defaultUpload = () => (
         onError={action('error')}
         onChange={action('change')}
         onRemove={action('remove')}
-    />
+    >default</Upload>
 );
 
 const cycleLifeUpload = () => {

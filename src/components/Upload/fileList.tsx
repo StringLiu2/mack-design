@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, memo } from 'react'
 import { UploadFile } from './upload'
 import Icon from '../Icon/icon'
 import Progress from '../Progress/progress'
@@ -43,4 +43,4 @@ export const FileList: FC<FileListProps> = ({
     )
 }
 
-export default FileList
+export default memo(FileList)

@@ -1,8 +1,9 @@
-import React, { FC, useState, useCallback, DragEvent } from 'react'
+import React, { FC, useState, useCallback, DragEvent, memo, ReactNode } from 'react'
 import classNames from 'classnames'
 export interface DraggerProps {
     /** 触发文件列表 */
     onFile: (files: FileList) => void;
+    children: ReactNode;
 }
 
 export const Dragger: FC<DraggerProps> = ({
@@ -36,4 +37,4 @@ export const Dragger: FC<DraggerProps> = ({
     )
 }
 
-export default Dragger
+export default memo(Dragger)

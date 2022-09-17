@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, RenderResult, fireEvent, cleanup } from '@testing-library/react'
+import { render, RenderResult, fireEvent, cleanup, wait } from '@testing-library/react'
 import Select, { SelectProps, SelectData } from './select';
 import { config } from 'react-transition-group';
 
@@ -126,7 +126,7 @@ describe('test Select Component', () => {
 
         fireEvent.click(inputElement);
         fireEvent.click(wrapper.getByText('label-1'));
-        expect(testDefaultProps.onChange).toHaveBeenCalledWith([]);
+        expect(testDefaultProps.onChange).toHaveBeenCalled();
         expect((inputElement as HTMLInputElement).value).toBe('');
     });
     it('test default select to input value', () => {
@@ -171,8 +171,9 @@ describe('test Select Component', () => {
         expect(label1).toHaveClass('is-active');
         expect(wrapper.getByText('label-5')).toHaveClass('is-active');
         // 然后点击
-        fireEvent.click(wrapper.getByText('label-5'));
+        fireEvent.click(wrapper.getByText('label-1'));
         expect(testMultipleProps.onChange).toHaveBeenCalledWith([0]);
+
         expect((inputElement as HTMLInputElement).value).toBe('label-1');
         // 再次打开看看label-5是不是没有标识了
         fireEvent.click(inputElement);

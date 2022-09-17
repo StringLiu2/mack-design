@@ -1,4 +1,4 @@
-import React, { FC, useRef, useCallback, ChangeEvent, useState } from 'react'
+import React, { FC, useRef, useCallback, ChangeEvent, useState, memo } from 'react'
 import axios from 'axios'
 import { v4 as uuid } from 'uuid';
 import FileList from './fileList';
@@ -219,4 +219,4 @@ Upload.defaultProps = {
     withCredentials: false,
     multiple: false,
 }
-export default Upload
+export default memo(Upload)

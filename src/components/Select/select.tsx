@@ -108,19 +108,20 @@ export const Select: FC<SelectProps> = ({
                     return [selectIndex];
                 }
             } else {
-                selectIndexArr.splice(index, 1);
+                // 先slice生成一个新的数组，然后进行操作
+                const indexArr = selectIndexArr.slice().splice(index, 1);
                 setHighlightIndex(-1); // 设置没高亮了
                 if (mode === 'multiple') {
                     // 只干掉一个
-                    const filterData = data.filter((_, index) => selectIndexArr.includes(index));
+                    const filterData = data.filter((_, index) => indexArr.includes(index));
                     setSelectValue(filterData.map(item => item.label).join(','));
                 } else {
                     // 有则去掉
                     setSelectValue(''); // 清空
                 }
                 // 改变，传递-1，没有
-                onChange?.(selectIndexArr);
-                return [...selectIndexArr];
+                onChange?.(indexArr);
+                return [...indexArr];
             }
         });
         handleVisible(false);

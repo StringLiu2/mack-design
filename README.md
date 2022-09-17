@@ -297,8 +297,8 @@
     node_js: # 语言的版本
         - "stable"
     cache: # 使用缓存
-    directories:
-        - node_modules
+        directories:
+            - node_modules
     env: # 环境变量
         - CI=true
     # 等待travis CI运行成功，这时候我们需要进行文档部署到travis CI (下面就是自动化部署的配置)

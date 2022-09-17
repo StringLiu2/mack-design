@@ -15,7 +15,7 @@ export interface SelectProps extends Omit<InputProps, 'onChange'> {
     defaultSelect?: Array<string | number> | string | number;
     /** 在下拉菜单显示、隐藏调用 */
     onVisibleChange?: (isVisible: boolean) => void;
-    /** 选中值发生变化的时候被触发，参数是第几项，选中的那项对象 */
+    /** 选中值发生变化的时候被触发，参数是选中的下标，选中的那项对象 */
     onChange?: (dataIndexArr: number[]) => void;
 }
 /**
